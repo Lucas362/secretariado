@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+import django_heroku
+
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -196,3 +198,5 @@ JWT_AUTH = {
 }
 
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
