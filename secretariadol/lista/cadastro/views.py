@@ -68,6 +68,6 @@ class PersonViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows person to be viewed or edited.
     """
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.AllowAny,)
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
