@@ -4,7 +4,6 @@ from lista.cadastro import views
 from rest_framework_jwt.views import refresh_jwt_token, verify_jwt_token
 from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework_swagger.views import get_swagger_view
-from rest_framework_simplejwt import views as jwt_views
 from django.urls import path
 
 router = routers.DefaultRouter()
