@@ -1,0 +1,8 @@
+jango==2.1.3
+djangorestframework==3.9.0
+djangorestframework-jwt
+django-rest-auth
+Pillow
+gunicorn
+django-rest-swagger
+django-heroku
