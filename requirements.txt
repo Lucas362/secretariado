@@ -6,3 +6,4 @@ Pillow
 gunicorn
 django-rest-swagger
 django-heroku
+whitenoise
