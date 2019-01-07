@@ -102,6 +102,7 @@ DATABASES = {
 }
 # AUTH_USER_MODEL = 'lista.cadastro.CustomUser'
 
+# DATABASES['default'] =  dj_database_url.config(default='sqlite://db/db.sqlite3')
 
 
 
