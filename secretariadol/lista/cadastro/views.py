@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
 from lista.cadastro.models import Person
 from lista.cadastro.serializers import UserSerializer, GroupSerializer, PersonSerializer, TokenSerializer
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
@@ -7,7 +6,6 @@ from rest_framework.authentication import SessionAuthentication
 from rest_framework.decorators import permission_classes
 from rest_framework import permissions
 from rest_framework import mixins, status, viewsets
-from django.contrib.auth import authenticate
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.status import HTTP_401_UNAUTHORIZED
@@ -17,8 +15,6 @@ from rest_framework import generics
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from rest_framework_jwt.settings import api_settings
-from rest_framework import permissions
-from rest_framework.response import Response
 
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
@@ -72,18 +68,6 @@ class PersonViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows person to be viewed or edited.
     """
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
-
-# @api_view(["POST"])
-# def login(request):
-#     username = request.data.get("username")
-#     password = request.data.get("password")
-
-#     user = authenticate(username=username, password=password)
-#     if not user:
-#         return Response({"error": "Login failed"}, status=HTTP_401_UNAUTHORIZED)
-
-#     token, _ = Token.objects.get_or_create(user=user)
-#     return Response({"token": token.key})
