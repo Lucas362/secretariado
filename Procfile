@@ -1,1 +1,1 @@
-web: gunicorn --chdir secretariasol lista.wsgi
+web: gunicorn --chdir secretariadol lista.wsgi
